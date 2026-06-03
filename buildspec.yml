@@ -19,8 +19,6 @@ phases:
       - echo Pushing the Docker image...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - echo Writing deployment definitions...
-      - printf '{"AWSEBAsDockerVersion":1,"Image":{"Name":"%s","Update":"true"},"Ports":[{"ContainerPort":80}]}' "$REPOSITORY_URI:$IMAGE_TAG" > Dockerrun.aws.json
 artifacts:
   files:
     - Dockerrun.aws.json

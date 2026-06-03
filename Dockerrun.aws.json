@@ -1,13 +1,3 @@
 {
-  "AWSEBDockerrunVersion": "1",
-  "Image": {
-    "Name": "754040250767.dkr.ecr.us-west-2.amazonaws.com/poc-test:<TAG>",
-    "Update": "true"
-  },
-  "Ports": [
-    {
-      "ContainerPort": 8080,
-      "HostPort": 8080
-    }
-  ]
+  "AWSEBDockerrunVersion": "3"
 }
