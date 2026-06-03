@@ -19,6 +19,8 @@ phases:
       - echo Pushing the Docker image...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing Elastic Beanstalk deployment file...
+      - envsubst < docker-compose.template.yml > docker-compose.yml
 artifacts:
   files:
-    - Dockerrun.aws.json
+    - docker-compose.yml
