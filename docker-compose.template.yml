@@ -2,4 +2,4 @@ services:
   poc-test-app:
     image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG:-latest}
     ports:
-      - "8080:8080"
+      - "80:8080"
