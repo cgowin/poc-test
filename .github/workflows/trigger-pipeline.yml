@@ -15,10 +15,10 @@ jobs:
     steps:
       
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6.1.0
         with:
           role-to-assume: arn:aws:iam::754040250767:role/chad-poc-test-oidc
           aws-region: us-west-2
