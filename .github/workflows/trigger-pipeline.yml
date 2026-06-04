@@ -1,0 +1,28 @@
+name: Trigger AWS CodePipeline
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  trigger-aws-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::754040250767:role/chad-poc-test-oidc
+          aws-region: us-west-2
+
+      - name: Trigger CodePipeline
+        run: |
+          aws codepipeline start-pipeline-execution --name poc-test
