@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.4
 
 # --- Stage 1: Build the application ---
-FROM golang:1.22-alpine AS builder
+FROM public.ecr.aws/docker/library/golang:1.22-alpine AS builder
 
 WORKDIR /app
 
@@ -29,7 +29,7 @@ EOF
 RUN CGO_ENABLED=0 GOOS=linux go build -o webservice main.go
 
 # --- Stage 2: Final minimal image ---
-FROM alpine:latest
+FROM public.ecr.aws/docker/library/alpine:latest
 
 WORKDIR /root/
 
